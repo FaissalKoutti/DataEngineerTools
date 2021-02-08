@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_84bfa88269ad404eb964d3e26f43b7cf {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+             <h3 align="center" style="font-size:20px"><b>Carte distinguant la moyenne des prix des hôtels en fonction de leur quartier.</b></h3>
+             
+    
+            <div class="folium-map" id="map_84bfa88269ad404eb964d3e26f43b7cf" ></div>
+        
+    
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script>
+    $( function() {
+        $( "#maplegend" ).draggable({
+                        start: function (event, ui) {
+                            $(this).css({
+                                right: "auto",
+                                top: "auto",
+                                bottom: "auto"
+                            });
+                        }
+                    });
+    });
+
+    </script>
+    </head>
+    <body>
+
+    
+    <div id='maplegend' class='maplegend' 
+        style='position: absolute; z-index:9999; border:2px solid grey; background-color:rgba(255, 255, 255, 0.8);
+        border-radius:6px; padding: 10px; font-size:14px; right: 20px; bottom: 20px;'>
+        
+    <div class='legend-title'>Legende</div>
+    <div class='legend-scale'>
+    <ul class='legend-labels'>
+        <li><span style='background:green;opacity:1;'></span>Prix Bas</li>
+        <li><span style='background:orange;opacity:1;'></span>Prix Moyen</li>
+        <li><span style='background:red;opacity:1;'></span>Prix Élevé</li>
+        <li><span style='background:black;opacity:1;'></span>Prix très élevé</li>
+
+    </ul>
+    </div>
+    </div>
+    
+    </body>
+    </html>
+
+    <style type='text/css'>
+    .maplegend .legend-title {
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 90%;
+        }
+    .maplegend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 5px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        }
+    .maplegend .legend-scale ul li {
+        font-size: 80%;
+        list-style: none;
+        margin-left: 0;
+        line-height: 18px;
+        margin-bottom: 2px;
+        }
+    .maplegend ul.legend-labels li span {
+        display: block;
+        float: left;
+        height: 16px;
+        width: 30px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 1px solid #999;
+        }
+    .maplegend .legend-source {
+        font-size: 80%;
+        color: #777;
+        clear: both;
+        }
+    .maplegend a {
+        color: #777;
+        }
+    </style>
+    
+</body>
+<script>    
+    
+            var map_84bfa88269ad404eb964d3e26f43b7cf = L.map(
+                "map_84bfa88269ad404eb964d3e26f43b7cf",
+                {
+                    center: [25.2048493, 55.2707828],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_293634ebee2c4871bfc0bce864ec250f = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var marker_63541dc016cc4ffcbb0c414130db673c = L.marker(
+                [25.227295, 55.341761],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_15ca49915539408888fb503eacf4d1ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_63541dc016cc4ffcbb0c414130db673c.setIcon(icon_15ca49915539408888fb503eacf4d1ae);
+        
+    
+        var popup_3884227efd63478297aa057ccec64de5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5da9befee6d34105a783b359d962124d = $(`<div id="html_5da9befee6d34105a783b359d962124d" style="width: 100.0%; height: 100.0%;">1949.0</div>`)[0];
+            popup_3884227efd63478297aa057ccec64de5.setContent(html_5da9befee6d34105a783b359d962124d);
+        
+
+        marker_63541dc016cc4ffcbb0c414130db673c.bindPopup(popup_3884227efd63478297aa057ccec64de5)
+        ;
+
+        
+    
+    
+            marker_63541dc016cc4ffcbb0c414130db673c.bindTooltip(
+                `<div>
+                     Culture Village
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7dd4d0bb87574cf8b786fbf478b05a37 = L.marker(
+                [25.07359, 55.126352],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_2966f279e7284ab29fc7ebe3ec91a029 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7dd4d0bb87574cf8b786fbf478b05a37.setIcon(icon_2966f279e7284ab29fc7ebe3ec91a029);
+        
+    
+        var popup_6911f24fe5b14767b3e161c5d863292f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8e0ba8e694ee4bf2b7442d26df137824 = $(`<div id="html_8e0ba8e694ee4bf2b7442d26df137824" style="width: 100.0%; height: 100.0%;">1833.0</div>`)[0];
+            popup_6911f24fe5b14767b3e161c5d863292f.setContent(html_8e0ba8e694ee4bf2b7442d26df137824);
+        
+
+        marker_7dd4d0bb87574cf8b786fbf478b05a37.bindPopup(popup_6911f24fe5b14767b3e161c5d863292f)
+        ;
+
+        
+    
+    
+            marker_7dd4d0bb87574cf8b786fbf478b05a37.bindTooltip(
+                `<div>
+                     Jumeirah Beach Residence
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c5e9729701e541019563b811276f1073 = L.marker(
+                [25.113208, 55.138932],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_813d73cdd551414e8d2bef76bce6940f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c5e9729701e541019563b811276f1073.setIcon(icon_813d73cdd551414e8d2bef76bce6940f);
+        
+    
+        var popup_bc2854b821db45f9877f1a4614a198ce = L.popup({"maxWidth": "100%"});
+
+        
+            var html_87b2fd643fc94c86a85d5ed97fcd9bbd = $(`<div id="html_87b2fd643fc94c86a85d5ed97fcd9bbd" style="width: 100.0%; height: 100.0%;">1813.076923076923</div>`)[0];
+            popup_bc2854b821db45f9877f1a4614a198ce.setContent(html_87b2fd643fc94c86a85d5ed97fcd9bbd);
+        
+
+        marker_c5e9729701e541019563b811276f1073.bindPopup(popup_bc2854b821db45f9877f1a4614a198ce)
+        ;
+
+        
+    
+    
+            marker_c5e9729701e541019563b811276f1073.bindTooltip(
+                `<div>
+                     Palm Jumeirah
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4fb104648e484d288a4eaa257c833736 = L.marker(
+                [25.079225, 55.135536],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_5bab669dcc6e4fe2bfb302b6ce9bc203 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4fb104648e484d288a4eaa257c833736.setIcon(icon_5bab669dcc6e4fe2bfb302b6ce9bc203);
+        
+    
+        var popup_304e22ebc16c470e8097a29396479a6e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_93f3d77ed32042b4b6ed1602e71b1ed9 = $(`<div id="html_93f3d77ed32042b4b6ed1602e71b1ed9" style="width: 100.0%; height: 100.0%;">1637.00</div>`)[0];
+            popup_304e22ebc16c470e8097a29396479a6e.setContent(html_93f3d77ed32042b4b6ed1602e71b1ed9);
+        
+
+        marker_4fb104648e484d288a4eaa257c833736.bindPopup(popup_304e22ebc16c470e8097a29396479a6e)
+        ;
+
+        
+    
+    
+            marker_4fb104648e484d288a4eaa257c833736.bindTooltip(
+                `<div>
+                     Marina de Dubaï
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_babbcd0c51bf4bfc896f41f10d69b43b = L.marker(
+                [25.283769, 55.330409],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_8a40af954f474942afc51befb5826905 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_babbcd0c51bf4bfc896f41f10d69b43b.setIcon(icon_8a40af954f474942afc51befb5826905);
+        
+    
+        var popup_4091e3acac1b4dc78904876476c7adb8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_43be2e9e5eb049b6804996dac8d632e0 = $(`<div id="html_43be2e9e5eb049b6804996dac8d632e0" style="width: 100.0%; height: 100.0%;">1637.00</div>`)[0];
+            popup_4091e3acac1b4dc78904876476c7adb8.setContent(html_43be2e9e5eb049b6804996dac8d632e0);
+        
+
+        marker_babbcd0c51bf4bfc896f41f10d69b43b.bindPopup(popup_4091e3acac1b4dc78904876476c7adb8)
+        ;
+
+        
+    
+    
+            marker_babbcd0c51bf4bfc896f41f10d69b43b.bindTooltip(
+                `<div>
+                     Deira
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2e3d19a0905443369fbbb4bfcf6cc747 = L.marker(
+                [25.180301, 55.26389200000001],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_1e2a754079d046d3b499afe2780b78f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2e3d19a0905443369fbbb4bfcf6cc747.setIcon(icon_1e2a754079d046d3b499afe2780b78f5);
+        
+    
+        var popup_c4e5cc04a8a741abac659cc3068b1260 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9a6e3112bf6740abb06a39a9c0838ad1 = $(`<div id="html_9a6e3112bf6740abb06a39a9c0838ad1" style="width: 100.0%; height: 100.0%;">1618.0</div>`)[0];
+            popup_c4e5cc04a8a741abac659cc3068b1260.setContent(html_9a6e3112bf6740abb06a39a9c0838ad1);
+        
+
+        marker_2e3d19a0905443369fbbb4bfcf6cc747.bindPopup(popup_c4e5cc04a8a741abac659cc3068b1260)
+        ;
+
+        
+    
+    
+            marker_2e3d19a0905443369fbbb4bfcf6cc747.bindTooltip(
+                `<div>
+                     Business Bay
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f26b8bcdc20e4a6c9e444013236bd004 = L.marker(
+                [25.138546, 55.194301],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_0fb78fb9517a41e5817867559d213045 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_f26b8bcdc20e4a6c9e444013236bd004.setIcon(icon_0fb78fb9517a41e5817867559d213045);
+        
+    
+        var popup_df5a651313fa44b997d8b40af459415c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ccf83f94201f4470bd24a267f491ed8e = $(`<div id="html_ccf83f94201f4470bd24a267f491ed8e" style="width: 100.0%; height: 100.0%;">2134.375</div>`)[0];
+            popup_df5a651313fa44b997d8b40af459415c.setContent(html_ccf83f94201f4470bd24a267f491ed8e);
+        
+
+        marker_f26b8bcdc20e4a6c9e444013236bd004.bindPopup(popup_df5a651313fa44b997d8b40af459415c)
+        ;
+
+        
+    
+    
+            marker_f26b8bcdc20e4a6c9e444013236bd004.bindTooltip(
+                `<div>
+                     Umm Suqeim 3
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_926464c7b0c3488d81baf5d969357990 = L.marker(
+                [24.948068, 55.069311],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_43fb731bf05c4fc2a6d4c0ebc7e3959f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_926464c7b0c3488d81baf5d969357990.setIcon(icon_43fb731bf05c4fc2a6d4c0ebc7e3959f);
+        
+    
+        var popup_90e5ee26f6e149d1bdc299447645a1d5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c2afb6495f6c4856a8e205c887c3d5a0 = $(`<div id="html_c2afb6495f6c4856a8e205c887c3d5a0" style="width: 100.0%; height: 100.0%;">2993.25</div>`)[0];
+            popup_90e5ee26f6e149d1bdc299447645a1d5.setContent(html_c2afb6495f6c4856a8e205c887c3d5a0);
+        
+
+        marker_926464c7b0c3488d81baf5d969357990.bindPopup(popup_90e5ee26f6e149d1bdc299447645a1d5)
+        ;
+
+        
+    
+    
+            marker_926464c7b0c3488d81baf5d969357990.bindTooltip(
+                `<div>
+                     Jebel Ali
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ce56ab0549b04aeea0382878fbf96988 = L.marker(
+                [25.12092, 55.182731],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_ab1a9e71206441ea877d90165833cd3e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ce56ab0549b04aeea0382878fbf96988.setIcon(icon_ab1a9e71206441ea877d90165833cd3e);
+        
+    
+        var popup_ef92c58f118d494d99d179fe276eb644 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e523500d9ac94da49833c03587f20cc4 = $(`<div id="html_e523500d9ac94da49833c03587f20cc4" style="width: 100.0%; height: 100.0%;">2863.3</div>`)[0];
+            popup_ef92c58f118d494d99d179fe276eb644.setContent(html_e523500d9ac94da49833c03587f20cc4);
+        
+
+        marker_ce56ab0549b04aeea0382878fbf96988.bindPopup(popup_ef92c58f118d494d99d179fe276eb644)
+        ;
+
+        
+    
+    
+            marker_ce56ab0549b04aeea0382878fbf96988.bindTooltip(
+                `<div>
+                     Al Sufouh 1
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b26f478af444f019564a95ab815d988 = L.marker(
+                [25.223728, 55.285118],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_5fa8192b8fc7435197a011bf84bf6833 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9b26f478af444f019564a95ab815d988.setIcon(icon_5fa8192b8fc7435197a011bf84bf6833);
+        
+    
+        var popup_c414eb33b6cd49d8b3eaa760d86608f3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2a61736120a14e8da6090a1ba1ea4dd4 = $(`<div id="html_2a61736120a14e8da6090a1ba1ea4dd4" style="width: 100.0%; height: 100.0%;">2863.3</div>`)[0];
+            popup_c414eb33b6cd49d8b3eaa760d86608f3.setContent(html_2a61736120a14e8da6090a1ba1ea4dd4);
+        
+
+        marker_9b26f478af444f019564a95ab815d988.bindPopup(popup_c414eb33b6cd49d8b3eaa760d86608f3)
+        ;
+
+        
+    
+    
+            marker_9b26f478af444f019564a95ab815d988.bindTooltip(
+                `<div>
+                     World Trade Center
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b9320ff60c4f4ba981deee5a2b578147 = L.marker(
+                [25.198518, 55.279619],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_1b1a63eb9965411d8c23a4aaafd519d9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b9320ff60c4f4ba981deee5a2b578147.setIcon(icon_1b1a63eb9965411d8c23a4aaafd519d9);
+        
+    
+        var popup_ba3588f04109448fab7d2c34220ffaaa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bfa0a0562d91406a97af407dc50f9860 = $(`<div id="html_bfa0a0562d91406a97af407dc50f9860" style="width: 100.0%; height: 100.0%;">2840.00</div>`)[0];
+            popup_ba3588f04109448fab7d2c34220ffaaa.setContent(html_bfa0a0562d91406a97af407dc50f9860);
+        
+
+        marker_b9320ff60c4f4ba981deee5a2b578147.bindPopup(popup_ba3588f04109448fab7d2c34220ffaaa)
+        ;
+
+        
+    
+    
+            marker_b9320ff60c4f4ba981deee5a2b578147.bindTooltip(
+                `<div>
+                     Centre Ville de Dubaï
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_618a50d0950f4b94ac59de1723cb6275 = L.marker(
+                [25.137409, 55.188957],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_69c1fc37f205489cbc01341dba804fdc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_618a50d0950f4b94ac59de1723cb6275.setIcon(icon_69c1fc37f205489cbc01341dba804fdc);
+        
+    
+        var popup_bc29323db5a14947863a4ca124bc42e8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c03d4fffa1454b8995525a33eeefdfda = $(`<div id="html_c03d4fffa1454b8995525a33eeefdfda" style="width: 100.0%; height: 100.0%;">2585.625</div>`)[0];
+            popup_bc29323db5a14947863a4ca124bc42e8.setContent(html_c03d4fffa1454b8995525a33eeefdfda);
+        
+
+        marker_618a50d0950f4b94ac59de1723cb6275.bindPopup(popup_bc29323db5a14947863a4ca124bc42e8)
+        ;
+
+        
+    
+    
+            marker_618a50d0950f4b94ac59de1723cb6275.bindTooltip(
+                `<div>
+                     Umm Suqeim
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7f12f342d43e462bbe8c052625021d95 = L.marker(
+                [25.215192, 55.235827],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_a437104af13e44ceb885bc8840c50da3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_7f12f342d43e462bbe8c052625021d95.setIcon(icon_a437104af13e44ceb885bc8840c50da3);
+        
+    
+        var popup_c38582f993fa4ce0959d7d1633879355 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_94bf6d678915452497d35a8c9d2779d7 = $(`<div id="html_94bf6d678915452497d35a8c9d2779d7" style="width: 100.0%; height: 100.0%;">4731.4</div>`)[0];
+            popup_c38582f993fa4ce0959d7d1633879355.setContent(html_94bf6d678915452497d35a8c9d2779d7);
+        
+
+        marker_7f12f342d43e462bbe8c052625021d95.bindPopup(popup_c38582f993fa4ce0959d7d1633879355)
+        ;
+
+        
+    
+    
+            marker_7f12f342d43e462bbe8c052625021d95.bindTooltip(
+                `<div>
+                     Jumeirah
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_08b0892dd1e3458f8f07ed0aaf82997d = L.marker(
+                [25.194935, 55.282665],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_586e43d1edd8420c9841ef1d8c402ad4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_08b0892dd1e3458f8f07ed0aaf82997d.setIcon(icon_586e43d1edd8420c9841ef1d8c402ad4);
+        
+    
+        var popup_33c9d397aed04b9ea9976994b28854e5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2ee0d26a9191405883fcf0700e659985 = $(`<div id="html_2ee0d26a9191405883fcf0700e659985" style="width: 100.0%; height: 100.0%;">3695.00</div>`)[0];
+            popup_33c9d397aed04b9ea9976994b28854e5.setContent(html_2ee0d26a9191405883fcf0700e659985);
+        
+
+        marker_08b0892dd1e3458f8f07ed0aaf82997d.bindPopup(popup_33c9d397aed04b9ea9976994b28854e5)
+        ;
+
+        
+    
+    
+            marker_08b0892dd1e3458f8f07ed0aaf82997d.bindTooltip(
+                `<div>
+                     Downtown Dubaï
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5193c6dc24e1462fa462542c06f6163c = L.marker(
+                [25.108984, 55.177657],
+                {}
+            ).addTo(map_84bfa88269ad404eb964d3e26f43b7cf);
+        
+    
+            var icon_e78a5159d9244d7798d81f6559609a5b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_5193c6dc24e1462fa462542c06f6163c.setIcon(icon_e78a5159d9244d7798d81f6559609a5b);
+        
+    
+        var popup_0e71734deb0f4ab2b6b6301ccf5243a4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_27427709aa1a436e90abcfc46c9814a0 = $(`<div id="html_27427709aa1a436e90abcfc46c9814a0" style="width: 100.0%; height: 100.0%;">3074.0</div>`)[0];
+            popup_0e71734deb0f4ab2b6b6301ccf5243a4.setContent(html_27427709aa1a436e90abcfc46c9814a0);
+        
+
+        marker_5193c6dc24e1462fa462542c06f6163c.bindPopup(popup_0e71734deb0f4ab2b6b6301ccf5243a4)
+        ;
+
+        
+    
+    
+            marker_5193c6dc24e1462fa462542c06f6163c.bindTooltip(
+                `<div>
+                     Al Sufouh
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

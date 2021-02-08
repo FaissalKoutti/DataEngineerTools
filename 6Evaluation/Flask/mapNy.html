@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1e871491e2de46efa25f22154f171895 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+             <h3 align="center" style="font-size:20px"><b>Carte distinguant la moyenne des prix des hôtels en fonction de leur quartier.</b></h3>
+             
+    
+            <div class="folium-map" id="map_1e871491e2de46efa25f22154f171895" ></div>
+        
+    
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script>
+    $( function() {
+        $( "#maplegend" ).draggable({
+                        start: function (event, ui) {
+                            $(this).css({
+                                right: "auto",
+                                top: "auto",
+                                bottom: "auto"
+                            });
+                        }
+                    });
+    });
+
+    </script>
+    </head>
+    <body>
+
+    
+    <div id='maplegend' class='maplegend' 
+        style='position: absolute; z-index:9999; border:2px solid grey; background-color:rgba(255, 255, 255, 0.8);
+        border-radius:6px; padding: 10px; font-size:14px; right: 20px; bottom: 20px;'>
+        
+    <div class='legend-title'>Legende</div>
+    <div class='legend-scale'>
+    <ul class='legend-labels'>
+        <li><span style='background:green;opacity:1;'></span>Prix Bas</li>
+        <li><span style='background:orange;opacity:1;'></span>Prix Moyen</li>
+        <li><span style='background:red;opacity:1;'></span>Prix Élevé</li>
+        <li><span style='background:black;opacity:1;'></span>Prix très élevé</li>
+
+    </ul>
+    </div>
+    </div>
+    
+    </body>
+    </html>
+
+    <style type='text/css'>
+    .maplegend .legend-title {
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 90%;
+        }
+    .maplegend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 5px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        }
+    .maplegend .legend-scale ul li {
+        font-size: 80%;
+        list-style: none;
+        margin-left: 0;
+        line-height: 18px;
+        margin-bottom: 2px;
+        }
+    .maplegend ul.legend-labels li span {
+        display: block;
+        float: left;
+        height: 16px;
+        width: 30px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 1px solid #999;
+        }
+    .maplegend .legend-source {
+        font-size: 80%;
+        color: #777;
+        clear: both;
+        }
+    .maplegend a {
+        color: #777;
+        }
+    </style>
+    
+</body>
+<script>    
+    
+            var map_1e871491e2de46efa25f22154f171895 = L.map(
+                "map_1e871491e2de46efa25f22154f171895",
+                {
+                    center: [40.723916, -73.994657],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_43847aa36d9741eca39bc64ad75e3941 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var marker_298a2af7b356497dbdf35c650ac59e06 = L.marker(
+                [40.75469110270623, -73.98166882730304],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_9c6c86b46a98473187899781dbe03195 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_298a2af7b356497dbdf35c650ac59e06.setIcon(icon_9c6c86b46a98473187899781dbe03195);
+        
+    
+        var popup_adf26f6b83cb4345a8f550da7d7234d5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ce1012661bc443d69a18af4f781b8dc9 = $(`<div id="html_ce1012661bc443d69a18af4f781b8dc9" style="width: 100.0%; height: 100.0%;">1914.0</div>`)[0];
+            popup_adf26f6b83cb4345a8f550da7d7234d5.setContent(html_ce1012661bc443d69a18af4f781b8dc9);
+        
+
+        marker_298a2af7b356497dbdf35c650ac59e06.bindPopup(popup_adf26f6b83cb4345a8f550da7d7234d5)
+        ;
+
+        
+    
+    
+            marker_298a2af7b356497dbdf35c650ac59e06.bindTooltip(
+                `<div>
+                     Midtown
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7fc22bb7ad904e45a43ed8510c0948d0 = L.marker(
+                [40.692303, -73.988653],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_b2eaf69f957e45ea8447a59ffafd9acf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7fc22bb7ad904e45a43ed8510c0948d0.setIcon(icon_b2eaf69f957e45ea8447a59ffafd9acf);
+        
+    
+        var popup_cf1fe5d634fb47419d7652c679222202 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bfcd5889ce5b4ed28e00fa17c8262628 = $(`<div id="html_bfcd5889ce5b4ed28e00fa17c8262628" style="width: 100.0%; height: 100.0%;">1637.00</div>`)[0];
+            popup_cf1fe5d634fb47419d7652c679222202.setContent(html_bfcd5889ce5b4ed28e00fa17c8262628);
+        
+
+        marker_7fc22bb7ad904e45a43ed8510c0948d0.bindPopup(popup_cf1fe5d634fb47419d7652c679222202)
+        ;
+
+        
+    
+    
+            marker_7fc22bb7ad904e45a43ed8510c0948d0.bindTooltip(
+                `<div>
+                     Brooklyn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1025132376804eb38192f4244ff2c27c = L.marker(
+                [40.765994, -73.976963],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_66af0f2263054e599d89c84b73ffac16 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_1025132376804eb38192f4244ff2c27c.setIcon(icon_66af0f2263054e599d89c84b73ffac16);
+        
+    
+        var popup_6dbedf7ef90e41fb84b594026ef920de = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ea5baa88d09c46c280e14290ecb5e46d = $(`<div id="html_ea5baa88d09c46c280e14290ecb5e46d" style="width: 100.0%; height: 100.0%;">2993.25</div>`)[0];
+            popup_6dbedf7ef90e41fb84b594026ef920de.setContent(html_ea5baa88d09c46c280e14290ecb5e46d);
+        
+
+        marker_1025132376804eb38192f4244ff2c27c.bindPopup(popup_6dbedf7ef90e41fb84b594026ef920de)
+        ;
+
+        
+    
+    
+            marker_1025132376804eb38192f4244ff2c27c.bindTooltip(
+                `<div>
+                     59e rue
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c797b0d55c574c329a2401e74efa7d03 = L.marker(
+                [40.756445, -73.970366],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_5a15c551216a42c1929a7ea2ae8252e4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_c797b0d55c574c329a2401e74efa7d03.setIcon(icon_5a15c551216a42c1929a7ea2ae8252e4);
+        
+    
+        var popup_9584d0eb09324df281468f57ff19572c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5dc82edcf8fb4dab94a920f6a4dc1e11 = $(`<div id="html_5dc82edcf8fb4dab94a920f6a4dc1e11" style="width: 100.0%; height: 100.0%;">2863.3</div>`)[0];
+            popup_9584d0eb09324df281468f57ff19572c.setContent(html_5dc82edcf8fb4dab94a920f6a4dc1e11);
+        
+
+        marker_c797b0d55c574c329a2401e74efa7d03.bindPopup(popup_9584d0eb09324df281468f57ff19572c)
+        ;
+
+        
+    
+    
+            marker_c797b0d55c574c329a2401e74efa7d03.bindTooltip(
+                `<div>
+                     Midtown East
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_524c765a6af141d3a1b50354ccad1dd8 = L.marker(
+                [40.75659, -73.98626],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_85874055ce5e4757ade6fce62161a1a9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_524c765a6af141d3a1b50354ccad1dd8.setIcon(icon_85874055ce5e4757ade6fce62161a1a9);
+        
+    
+        var popup_e16e7ad469d64b68b3f67351642d660e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5117265b1ebf4367b4a638400d97d01c = $(`<div id="html_5117265b1ebf4367b4a638400d97d01c" style="width: 100.0%; height: 100.0%;">2840.00</div>`)[0];
+            popup_e16e7ad469d64b68b3f67351642d660e.setContent(html_5117265b1ebf4367b4a638400d97d01c);
+        
+
+        marker_524c765a6af141d3a1b50354ccad1dd8.bindPopup(popup_e16e7ad469d64b68b3f67351642d660e)
+        ;
+
+        
+    
+    
+            marker_524c765a6af141d3a1b50354ccad1dd8.bindTooltip(
+                `<div>
+                     Theater District
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c24f087ad9c745d6b713ddb3eac5c0f5 = L.marker(
+                [40.721521967443216, -74.01068328559087],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_c932303508b2422a8c8bb331e256a583 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_c24f087ad9c745d6b713ddb3eac5c0f5.setIcon(icon_c932303508b2422a8c8bb331e256a583);
+        
+    
+        var popup_03dea5eddf9544359b811f03d760bb5d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5dfd027d66f242d3a54146bf06fe3d07 = $(`<div id="html_5dfd027d66f242d3a54146bf06fe3d07" style="width: 100.0%; height: 100.0%;">2828.25</div>`)[0];
+            popup_03dea5eddf9544359b811f03d760bb5d.setContent(html_5dfd027d66f242d3a54146bf06fe3d07);
+        
+
+        marker_c24f087ad9c745d6b713ddb3eac5c0f5.bindPopup(popup_03dea5eddf9544359b811f03d760bb5d)
+        ;
+
+        
+    
+    
+            marker_c24f087ad9c745d6b713ddb3eac5c0f5.bindTooltip(
+                `<div>
+                     Tribeca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f08f846610064e4c88ed3ddb901da0bd = L.marker(
+                [40.747745, -73.985474],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_9995088c29c3461e982b60da02b03684 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_f08f846610064e4c88ed3ddb901da0bd.setIcon(icon_9995088c29c3461e982b60da02b03684);
+        
+    
+        var popup_6021ee8b77024f4596b96b32cb60286c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1342f128c9ff457f89b9c20146a42c71 = $(`<div id="html_1342f128c9ff457f89b9c20146a42c71" style="width: 100.0%; height: 100.0%;">2374.75</div>`)[0];
+            popup_6021ee8b77024f4596b96b32cb60286c.setContent(html_1342f128c9ff457f89b9c20146a42c71);
+        
+
+        marker_f08f846610064e4c88ed3ddb901da0bd.bindPopup(popup_6021ee8b77024f4596b96b32cb60286c)
+        ;
+
+        
+    
+    
+            marker_f08f846610064e4c88ed3ddb901da0bd.bindTooltip(
+                `<div>
+                     Manhattan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bb59b078ac244b97a3d4293c6258bf8c = L.marker(
+                [40.757447, -73.98595],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_e04c3fc649d44f37a1b778db6a168d5d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_bb59b078ac244b97a3d4293c6258bf8c.setIcon(icon_e04c3fc649d44f37a1b778db6a168d5d);
+        
+    
+        var popup_2ed599f5d67b4f0a81486aaf47988ff5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3690ffa98d9943678563e330c60e0585 = $(`<div id="html_3690ffa98d9943678563e330c60e0585" style="width: 100.0%; height: 100.0%;">2134.375</div>`)[0];
+            popup_2ed599f5d67b4f0a81486aaf47988ff5.setContent(html_3690ffa98d9943678563e330c60e0585);
+        
+
+        marker_bb59b078ac244b97a3d4293c6258bf8c.bindPopup(popup_2ed599f5d67b4f0a81486aaf47988ff5)
+        ;
+
+        
+    
+    
+            marker_bb59b078ac244b97a3d4293c6258bf8c.bindTooltip(
+                `<div>
+                     Times Square
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_21784c9d0223488c9898d74731ec4845 = L.marker(
+                [40.7528793, -74.0243068],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_dad3f2097f644e49a4947955b697f1f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_21784c9d0223488c9898d74731ec4845.setIcon(icon_dad3f2097f644e49a4947955b697f1f5);
+        
+    
+        var popup_d8636a79ea1e41e6acc8aa03cab40873 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6391513a370c4ca6b1242c32fcd056f3 = $(`<div id="html_6391513a370c4ca6b1242c32fcd056f3" style="width: 100.0%; height: 100.0%;">3695.00</div>`)[0];
+            popup_d8636a79ea1e41e6acc8aa03cab40873.setContent(html_6391513a370c4ca6b1242c32fcd056f3);
+        
+
+        marker_21784c9d0223488c9898d74731ec4845.bindPopup(popup_d8636a79ea1e41e6acc8aa03cab40873)
+        ;
+
+        
+    
+    
+            marker_21784c9d0223488c9898d74731ec4845.bindTooltip(
+                `<div>
+                     Uptown
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b0bb7e5916e473495529345196043c7 = L.marker(
+                [40.775638573301805, -73.96050763135],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_240a7c38bd904e9b8444fac54b4a74bc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3b0bb7e5916e473495529345196043c7.setIcon(icon_240a7c38bd904e9b8444fac54b4a74bc);
+        
+    
+        var popup_38a22c56a9d248ffb58d5d8e64a192c3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b7c4f2d2fb294305bd323c7ec0bdf958 = $(`<div id="html_b7c4f2d2fb294305bd323c7ec0bdf958" style="width: 100.0%; height: 100.0%;">3608.0</div>`)[0];
+            popup_38a22c56a9d248ffb58d5d8e64a192c3.setContent(html_b7c4f2d2fb294305bd323c7ec0bdf958);
+        
+
+        marker_3b0bb7e5916e473495529345196043c7.bindPopup(popup_38a22c56a9d248ffb58d5d8e64a192c3)
+        ;
+
+        
+    
+    
+            marker_3b0bb7e5916e473495529345196043c7.bindTooltip(
+                `<div>
+                     Upper East Side
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8bdaf27ab259444aa95655615ff33091 = L.marker(
+                [40.76811265828733, -73.9588596881376],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_ddcc502267bd4bd4bb48aa7c7fc7142c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8bdaf27ab259444aa95655615ff33091.setIcon(icon_ddcc502267bd4bd4bb48aa7c7fc7142c);
+        
+    
+        var popup_a72f6c3ed5a0469a915f1edce198cd77 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1f08ac479e5d432f938876974c3e19d4 = $(`<div id="html_1f08ac479e5d432f938876974c3e19d4" style="width: 100.0%; height: 100.0%;">3246.0</div>`)[0];
+            popup_a72f6c3ed5a0469a915f1edce198cd77.setContent(html_1f08ac479e5d432f938876974c3e19d4);
+        
+
+        marker_8bdaf27ab259444aa95655615ff33091.bindPopup(popup_a72f6c3ed5a0469a915f1edce198cd77)
+        ;
+
+        
+    
+    
+            marker_8bdaf27ab259444aa95655615ff33091.bindTooltip(
+                `<div>
+                     Lenox Hill
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5a802157692447b6a8c53328f0920d70 = L.marker(
+                [40.75665808227519, -74.00011136202637],
+                {}
+            ).addTo(map_1e871491e2de46efa25f22154f171895);
+        
+    
+            var icon_e40c69eff6844462bf3221b45fcbe007 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_5a802157692447b6a8c53328f0920d70.setIcon(icon_e40c69eff6844462bf3221b45fcbe007);
+        
+    
+        var popup_9d44499095834c3c8d78b2e85e8db2c4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8e25770c7e444c63b2ddd271f9557b07 = $(`<div id="html_8e25770c7e444c63b2ddd271f9557b07" style="width: 100.0%; height: 100.0%;">4023.0</div>`)[0];
+            popup_9d44499095834c3c8d78b2e85e8db2c4.setContent(html_8e25770c7e444c63b2ddd271f9557b07);
+        
+
+        marker_5a802157692447b6a8c53328f0920d70.bindPopup(popup_9d44499095834c3c8d78b2e85e8db2c4)
+        ;
+
+        
+    
+    
+            marker_5a802157692447b6a8c53328f0920d70.bindTooltip(
+                `<div>
+                     Hudson Yards
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
